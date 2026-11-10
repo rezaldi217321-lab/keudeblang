@@ -1,0 +1,9 @@
+{
+  "name": "KEUDE BLANG Kasir",
+  "short_name": "KEUDE BLANG",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#17100c",
+  "theme_color": "#24170f",
+  "description": "Aplikasi kasir KEUDE BLANG"
+}

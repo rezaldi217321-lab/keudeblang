@@ -1,0 +1,9 @@
+name = "keude-blang"
+compatibility_date = "2026-11-11"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "keude-blang-db"
+database_id = "GANTI_DENGAN_DATABASE_ID"
+migrations_dir = "migrations"

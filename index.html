@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24170f"><title>KEUDE BLANG — Kasir</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">KB</span><span><b>KEUDE BLANG</b><small>COFFEE • SNACK • CASHIER</small></span></a>
+    <div class="top-actions"><span id="clock" class="clock"></span><button id="logoutBtn" class="btn btn-quiet hidden">Keluar</button></div>
+  </header>
+  <main>
+    <section id="loginView" class="login-wrap">
+      <div class="login-card glass">
+        <div class="cup-icon">☕</div><p class="eyebrow">WELCOME BACK</p><h1>Panel Kasir</h1>
+        <p class="muted">Masuk untuk mengelola transaksi KEUDE BLANG.</p>
+        <form id="loginForm"><label>Kata sandi admin</label><input id="password" type="password" autocomplete="current-password" placeholder="Masukkan kata sandi" required><button class="btn btn-primary full" type="submit">Masuk ke Kasir <span>→</span></button><p id="loginError" class="error"></p></form>
+        <small class="muted">Atur ADMIN_PASSWORD di Cloudflare sebelum digunakan.</small>
+      </div>
+    </section>
+    <section id="appView" class="hidden">
+      <div class="welcome-row"><div><p class="eyebrow">KEUDE BLANG / OVERVIEW</p><h1>Dashboard Kasir</h1><p class="muted">Kelola pesanan dan pantau penjualan hari ini.</p></div><span class="open-pill"><i></i> Sistem siap</span></div>
+      <div class="stats-grid">
+        <article class="stat glass"><span>Penjualan hari ini</span><strong id="salesToday">Rp0</strong><small>Transaksi berhasil</small></article>
+        <article class="stat glass"><span>Jumlah transaksi</span><strong id="countToday">0</strong><small>Hari ini</small></article>
+        <article class="stat glass"><span>Produk terjual</span><strong id="itemsToday">0</strong><small>Unit hari ini</small></article>
+      </div>
+      <div class="workspace">
+        <section class="menu-panel glass">
+          <div class="panel-heading"><div><p class="eyebrow">OUR MENU</p><h2>Menu pilihan</h2></div><input id="searchMenu" class="search" placeholder="Cari menu…"></div>
+          <div id="categoryTabs" class="category-tabs"></div>
+          <div id="menuGrid" class="menu-grid"></div>
+        </section>
+        <aside class="cart-panel glass">
+          <div class="panel-heading"><div><p class="eyebrow">CURRENT ORDER</p><h2>Keranjang</h2></div><button id="clearCart" class="text-btn">Kosongkan</button></div>
+          <div id="cartItems" class="cart-items"><div class="empty-cart">☕<b>Belum ada pesanan</b><span>Pilih menu untuk memulai transaksi.</span></div></div>
+          <div class="checkout">
+            <div class="total-line"><span>Subtotal</span><b id="subtotal">Rp0</b></div>
+            <label for="cashInput">Uang diterima (Rp)</label><input id="cashInput" class="cash-input" inputmode="numeric" placeholder="Contoh: 20000">
+            <div class="total-line change"><span>Kembalian</span><b id="change">Rp0</b></div>
+            <button id="payBtn" class="btn btn-primary full" disabled>Proses pembayaran <span>→</span></button>
+            <p class="tiny muted">Transaksi akan tersimpan ke database setelah pembayaran berhasil.</p>
+          </div>
+        </aside>
+      </div>
+      <section class="history-panel glass">
+        <div class="panel-heading"><div><p class="eyebrow">RECENT ACTIVITY</p><h2>Transaksi terbaru</h2></div><button id="refreshBtn" class="text-btn">↻ Muat ulang</button></div>
+        <div class="table-scroll"><table><thead><tr><th>No. transaksi</th><th>Waktu</th><th>Item</th><th>Total</th></tr></thead><tbody id="historyBody"><tr><td colspan="4" class="muted">Belum ada transaksi.</td></tr></tbody></table></div>
+      </section>
+    </section>
+  </main>
+  <div id="toast" class="toast"></div>
+  <div id="receiptModal" class="modal hidden"><div class="receipt-card"><button id="closeReceipt" class="modal-close">×</button><div id="receiptContent"></div><button id="printReceipt" class="btn btn-primary full">Cetak struk</button></div></div>
+  <script src="/app.js"></script>
+</body></html>
